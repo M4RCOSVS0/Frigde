@@ -1,0 +1,30 @@
+📂 controller
+
+O que é: Recebe as requisições HTTP (GET, POST, PUT, DELETE)
+Serve para: Definir os endpoints da API e retornar respostas
+Exemplo: @GetMapping("/foods"), @PostMapping("/foods")
+
+📂 model
+
+O que é: Classes que representam os dados (entidades)
+Serve para: Definir a estrutura dos objetos e mapear para o banco
+Exemplo: Classe Food com atributos como id, name, quantity
+
+📂 repository
+
+O que é: Interface para acessar o banco de dados
+Serve para: Fazer operações CRUD (Create, Read, Update, Delete)
+Exemplo: findById(), save(), deleteById()
+
+📂 service
+
+O que é: Lógica de negócio da aplicação
+Serve para: Processar dados entre Controller e Repository
+Exemplo: Validações, cálculos, regras específicas
+
+⚙️ FridgeApplication
+
+O que é: Classe principal com método main()
+Serve para: Iniciar a aplicação Spring Boot
+
+Fluxo: Controller → Service → Repository → Banco de Dados

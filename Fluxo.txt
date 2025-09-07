@@ -1,0 +1,35 @@
+1. 📱 CLIENTE 
+   ↓ envia JSON: {"name": "Maçã", "quantity": 5}
+   
+2. 🎯 CONTROLLER
+   public ResponseEntity<Food> create(@RequestBody Food food) {  ← Model FOOD
+       Food savedFood = foodService.save(food);                ← Model FOOD
+       return ResponseEntity.ok(savedFood);                     ← Model FOOD
+   }
+   ↓
+   
+3. 🧠 SERVICE
+   public Food save(Food food) {           ← Model FOOD (recebe)
+       return foodRepository.save(food);   ← Model FOOD (passa adiante)
+   }                                       ↑ Model FOOD (retorna)
+   ↓
+   
+4. 🗄️ REPOSITORY
+   save(Food food)  ← Model FOOD (recebe o objeto)
+   ↓ converte FOOD para SQL
+   
+5. 💾 BANCO DE DADOS
+   INSERT INTO food_table (name, quantity) VALUES ('Maçã', 5);
+   ↑ retorna dados
+   
+6. 🗄️ REPOSITORY  
+   ↑ converte resultado SQL em objeto FOOD
+   
+7. 🧠 SERVICE
+   ↑ retorna objeto FOOD
+   
+8. 🎯 CONTROLLER
+   ↑ retorna FOOD como JSON
+   
+9. 📱 CLIENTE
+   ↑ recebe: {"id": 1, "name": "Maçã", "quantity": 5}
