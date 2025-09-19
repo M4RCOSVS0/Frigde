@@ -1,7 +1,6 @@
 package dev.Fridge.model;
 
 import jakarta.persistence.*;
-
 import java.time.LocalDate;
 
 @Entity
@@ -13,6 +12,10 @@ public class Food {
     private String name;
     private LocalDate expirationDate;
     private Integer quantity;
+
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
 
     public Food() {
     }
@@ -54,5 +57,13 @@ public class Food {
 
     public void setQuantity(Integer quantity) {
         this.quantity = quantity;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }
